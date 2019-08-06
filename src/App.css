@@ -1,5 +1,15 @@
-.App {
+/* .App {
   text-align: center;
+} */
+ul,li,div,span,p,h1,h2,h3,h4 {
+  margin:0;
+  padding:0;
+}
+*{
+  touch-action:pan-y;;
+}
+li{
+  list-style: none;
 }
 
 .App-logo {
