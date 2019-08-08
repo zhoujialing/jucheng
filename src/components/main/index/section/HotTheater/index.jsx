@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
-import { TheaterWrap } from "./styled"
+import { TheaterWrap } from "../styled"
 import { loadHotTheater } from "@/components/main/index/actionCreator"
 import Swiper from "@/components/layout/swiper/index"
 
@@ -13,7 +13,7 @@ class HotTheater extends PureComponent {
                     <div className="title">
                         热门场馆
                  </div>
-                    <Swiper id={'hotTheater'} height={"297px"} swiperConfig={{ slidesPerView: 3, spaceBetween: 5 }}>
+                    <Swiper id={'hotTheater'} height={"297px"} swiperconfig={{ slidesPerView: 3, spaceBetween: 5 }}>
                         {
                             this.props.theaterList.map((item, index) => (
                                 <div className="swiper-slide" key={index}>

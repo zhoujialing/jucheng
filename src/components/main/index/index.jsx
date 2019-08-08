@@ -13,7 +13,7 @@ import TourRecommend from "@/components/main/index/section/TourRecommend"
 import Vipdata from "@/components/main/index/section/Vipdata"
 import FloorShow from "@/components/main/index/section/FloorShow"
 import HotTheater from "@/components/main/index/section/HotTheater"
-import PullToRefresh from "@/components/layout/PullToRefresh"
+import PullToRefresh from "@/components/main/index/section/PullToRefresh"
 
 
 class Index extends React.Component {
@@ -30,7 +30,7 @@ class Index extends React.Component {
     return (
       <IndexWrap>
         <City />
-        {/* <PullToRefresh> */}
+        <PullToRefresh>
           {
             Object.keys(this.props.indexTopData).length !== 0 ? (
               <div>
@@ -50,8 +50,7 @@ class Index extends React.Component {
           }
           <FloorShow />
           <HotTheater />
-        {/* </PullToRefresh> */}
-        <PullToRefresh/>
+        </PullToRefresh>
       </IndexWrap>
     )
   }

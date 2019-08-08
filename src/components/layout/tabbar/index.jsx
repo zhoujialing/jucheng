@@ -10,7 +10,8 @@ import ticketS from "@/images/3.1.png"
 import my from "@/images/4.1.png"
 import myS from "@/images/4.2.png"
 
-
+ import { NavLink } from "react-router-dom"
+import { blockParams } from "handlebars";
 export default class extends React.Component {
   constructor(props) {
     super(props);
@@ -18,6 +19,12 @@ export default class extends React.Component {
       selectedTab: 'blueTab',
       hidden: false,
       fullScreen: false,
+      // routerList: [
+      //   { path: "/index" },
+      //   { path: "/mine"},
+      //   { path: "/theater"},
+      //   { path: "/ticket" }
+      // ],
     };
   }
 
@@ -33,12 +40,13 @@ export default class extends React.Component {
           <TabBar.Item
             title={this.state.selectedTab === 'blueTab'? "" : "首页"}
             key={this.state.selectedTab === 'blueTab'? "" : "首页"}
-            icon={<div style={{
+            icon={<NavLink style={{
               width: '22px',
               height: '22px',
+              display:'block',
               background: `url(${indexImg}) center center /  30px 30px no-repeat`
             }}
-            />
+            to="/index"  />
             }
             selectedIcon={<div style={{
               width: '42px',
@@ -60,12 +68,13 @@ export default class extends React.Component {
           </TabBar.Item>
           <TabBar.Item
             icon={
-              <div style={{
+              <NavLink style={{
                 width: '22px',
                 height: '22px',
+                display:'block',
                 background: `url(${theater}) center center /  30px 30px no-repeat`
               }}
-              />
+              to="/theater"  />
             }
             selectedIcon={
               <div style={{
@@ -88,12 +97,13 @@ export default class extends React.Component {
           </TabBar.Item>
           <TabBar.Item
             icon={
-              <div style={{
+              <NavLink style={{
                 width: '22px',
                 height: '22px',
+                display:'block',
                 background: `url(${ticket}) center center /  30px 30px no-repeat`
               }}
-              />
+              to="/ticket" />
             }
             selectedIcon={
               <div style={{
@@ -115,7 +125,13 @@ export default class extends React.Component {
           >
           </TabBar.Item>
           <TabBar.Item
-            icon={{ uri: `${my}` }}
+            icon={ <NavLink style={{
+              width: '22px',
+              height: '22px',
+              display:'block',
+              background: `url(${my}) center center /  30px 30px no-repeat`
+            }}
+            to="/mine" />}
             selectedIcon={{ uri: `${myS}` }}
             title="我的"
             key="我的"

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
-import { ShowWrap } from "./styled"
+import { ShowWrap } from "../styled"
 import { loadFloorShow } from "@/components/main/index/actionCreator"
 import Swiper from "@/components/layout/swiper/index"
 
@@ -16,7 +16,7 @@ class FloorShow extends PureComponent {
                             this.props.floorShow.map((item, index) => (
                                 <li key={index} className="showList">
                                     <div className="title">{item.title}</div>
-                                    <div className="showOne" >
+                                    <div className="showOne" id={'show' + index}>
                                         <div className="showOneL">
                                             <img src={item.list[0].pic} alt="" />
                                         </div>
@@ -30,20 +30,20 @@ class FloorShow extends PureComponent {
                                         </div>
                                     </div>
                                     <div className="swiperBox">
-                                        <Swiper id={'floorShow'+index} height={"107px"} swiperConfig={{ slidesPerView : 3,spaceBetween: 5,paginationClickable: true,}}>
+                                        <Swiper id={'floorShow' + index} height={"107px"} swiperconfig={{ slidesPerView: 3, spaceBetween: 5, paginationClickable: true, }}>
                                             {
                                                 item.list.map((el, i) => (
-                                                            i > 0 ? (
-                                                                <ul className="swiper-slide" key={i}>
-                                                                    <li>
-                                                                        <img src={el.pic} alt="" />
-                                                                        <h3>{el.schedular_name}</h3>
-                                                                        <p>
-                                                                        <span>￥{parseInt(el.low_price)}</span>起
+                                                    i > 0 ? (
+                                                        <ul className="swiper-slide" key={i}>
+                                                            <li>
+                                                                <img src={el.pic} alt="" />
+                                                                <h3>{el.schedular_name}</h3>
+                                                                <p>
+                                                                    <span>￥{parseInt(el.low_price)}</span>起
                                                                         </p>
-                                                                    </li>
-                                                                </ul>
-                                                            ) : null
+                                                            </li>
+                                                        </ul>
+                                                    ) : null
                                                 ))
                                             }
                                         </Swiper>

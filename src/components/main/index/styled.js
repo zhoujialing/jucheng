@@ -8,18 +8,21 @@ const IndexWrap = styled.div`
     margin-bottom:${r(50)};
     header{
         height:${r(44)};
+        width:100%;
         background:rgba(0,0,0,0);
         padding-left:${r(15)};
         padding-right:${r(15)};
         display:flex;
         align-items:center;
-        justify-content: space-between;
+        justify-content: center;
         position: fixed;
         z-index:99;
         .address{
             width:${r(58.5)};
             height:${r(28)};
             display:flex;
+            position:fixed;
+            left:4%;
             background-color: rgba(0,0,0,.3);
             border: 1px solid hsla(0,0%,88%,.3);
             border-radius:${r(20)};
@@ -43,6 +46,18 @@ const IndexWrap = styled.div`
             border-radius:${r(20)};
             background-color: rgba(0,0,0,.3);
             border: 1px solid hsla(0,0%,88%,.3);
+        }
+        .iconTop{
+            width:${r(27)};
+            height:${r(25)};
+            position: fixed;
+            top:1.5%;
+            right:4%;
+            z-index:99;
+            img{
+                width:100%;
+                height:100%;
+            }
         }
         
     }

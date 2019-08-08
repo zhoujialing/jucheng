@@ -7,7 +7,8 @@ import {
     GET_HOT_RECOMMEND,
     GET_TOUR_RECOMMEND,
     GET_FLOOR_SHOW,
-    GET_HOT_THEATER
+    GET_HOT_THEATER,
+    GET_UPLOAD_DATA,
 } from "./actionCreator"
 const defaultStore = fromJS({
     num: 0,
@@ -22,8 +23,9 @@ const defaultStore = fromJS({
     getVipData: {},     //vip数据
     hots_show_list: [],  //热门演出
     tour_show_list: [],     //巡回演出
-    floorShow:[],        //演出分类
-    theater_list:[]
+    floorShow: [],        //演出分类
+    theater_list: [],   //热门场馆
+    upLoad: []      //下拉刷新
 })
 export default (state = defaultStore, action) => {
     switch (action.type) {
@@ -56,10 +58,15 @@ export default (state = defaultStore, action) => {
         // 演出分类
         case GET_FLOOR_SHOW:
             return state.update("floorShow", (x) => x = fromJS(action.val.data.data));
+        //热门场馆
         case GET_HOT_THEATER:
-            console.log(action.val.data.data);
-
             return state.update("theater_list", (x) => x = fromJS(action.val.data.data.theatre_list));
+        //下拉刷新
+        case GET_UPLOAD_DATA:
+            return state.update("upLoad",(x)=>{
+                return x.concat(fromJS(action.val.data.data.recommend_show_list))
+            })
+        default:
+            return state;
     }
-    return state;
 }

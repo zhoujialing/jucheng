@@ -6,6 +6,7 @@ const TabbarWrap = styled.div`
     position: fixed;
     width: 100%;
     bottom: 0;
+    z-index:99;
     .am-tab-bar-bar{
         height:50px;
         position: fixed;

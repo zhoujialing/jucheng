@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import {BannerWrap, NavWrap } from "./styled"
+import { BannerWrap, NavWrap } from "../styled"
 import { Carousel, WingBlank } from 'antd-mobile';
 
 export class Banner extends PureComponent {
@@ -7,70 +7,72 @@ export class Banner extends PureComponent {
     imgHeight: 196,
   }
   render() {
-    if(this.props.indexTopData.slide_list.length!==0){
+    if (this.props.indexTopData.slide_list.length !== 0) {
       return (
         <BannerWrap>
           <WingBlank>
             <Carousel
-              autoplay={true} 
+              autoplay={true}
               infinite
-              >
+            >
               {
                 this.props.indexTopData.slide_list.map((val, index) => (
-                <a
-                  key={index}
-                  href={val.url}
-                  style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
-                >
-                  <img
-                    src={val.image_url}
-                    alt=""
-                    style={{ width: '100%', verticalAlign: 'middle' }}
-                    onLoad={() => {
-                      // fire window resize event to change height
-                      window.dispatchEvent(new Event('resize'));
-                      this.setState({ imgHeight: 'auto' });
-                    }}
-                  />
-                </a>
-              ))}
+                  <a
+                    key={index}
+                    href={val.url}
+                    style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
+                  >
+                    <img
+                      src={val.image_url}
+                      alt=""
+                      style={{ width: '100%', verticalAlign: 'middle' }}
+                      onLoad={() => {
+                        // fire window resize event to change height
+                        window.dispatchEvent(new Event('resize'));
+                        this.setState({ imgHeight: 'auto' });
+                      }}
+                    />
+                  </a>
+                ))}
             </Carousel>
           </WingBlank>
         </BannerWrap>
       );
-    }else{
+    } else {
       return null;
     }
   }
-  
+
 }
+
 export class Nav extends PureComponent {
   render() {
     // console.log(this.props.getVipData.priorList);
-    
-   if(this.props.indexTopData.slide_list.length!==0){
-    return (
-      <NavWrap>
-        {/* */}
-        <ul className="navTop">
-          {
-            this.props.indexTopData.classify_list.map((val, index) => (
-              <li key={index}>
-                <a
-                  href={val.url}
-                >
-                  <img
-                    src={val.pic} alt=""
-                  />
-                  <p>{val.name}</p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-        {/* ------------------vip--------------------- */}
-        <div>
-         {/* {
+
+    if (this.props.indexTopData.slide_list.length !== 0) {
+      return (
+        <NavWrap>
+          {/* */}
+
+          <ul className="navTop">
+            {
+              this.props.indexTopData.classify_list.map((val, index) => (
+                <li key={index}>
+                  <a
+                    href={val.url}
+                  >
+                    <img
+                      src={val.pic} alt=""
+                    />
+                    <p>{val.name}</p>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+          {/* ------------------vip--------------------- */}
+          <div>
+            {/* {
             this.props.getVipData.priorList.length !== 0 ? (
               // var vipData = this.props.getVipData.priorList[0]
               <div className="vip">
@@ -99,43 +101,43 @@ export class Nav extends PureComponent {
                 </div>
               </div>
             ) : (  */}
-                <div className="imgBox">
-                  <img src={this.props.indexTopData.ad_list.advert1[0].pic} alt=""/>
-                </div>
-              {/* )
+            <div className="imgBox">
+              <img src={this.props.indexTopData.ad_list.advert1[0].pic} alt="" />
+            </div>
+            {/* )
           } */}
-        </div>
+          </div>
 
-        {/* ---------------vip卡------------------- */}
-        <div className="operation">
-          <ul className="operationTop">
-            {
-              this.props.indexTopData.operation_list.map((val, index) => (
-                <li key={index}>
-                  <a
-                    href={val.url}
-                  >
-                    <div>
-                      <h3>{val.name}</h3>
-                      <div dangerouslySetInnerHTML={{ __html: val.describe }}></div>
-                    </div>
-                    <img
-                      src={val.pic} alt=""
-                    />
+          {/* ---------------vip卡------------------- */}
+          <div className="operation">
+            <ul className="operationTop">
+              {
+                this.props.indexTopData.operation_list.map((val, index) => (
+                  <li key={index}>
+                    <a
+                      href={val.url}
+                    >
+                      <div>
+                        <h3>{val.name}</h3>
+                        <div dangerouslySetInnerHTML={{ __html: val.describe }}></div>
+                      </div>
+                      <img
+                        src={val.pic} alt=""
+                      />
 
-                  </a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
 
 
-      </NavWrap>
-    )
-   }else{
-     return null
-   }
+        </NavWrap>
+      )
+    } else {
+      return null
+    }
 
   }
 }
@@ -147,7 +149,7 @@ export class Nav extends PureComponent {
 //     currentCity: state.getIn(["indexReducer", "currentCity"]).toJS(),
 //     indexTopData: state.getIn(["indexReducer", "indexTopData"]).toJS(),
 //     getVipData: state.getIn(["indexReducer", "getVipData"]).toJS(),
-    
+
 //   }
 // }
 

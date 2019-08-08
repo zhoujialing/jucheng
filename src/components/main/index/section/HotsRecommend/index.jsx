@@ -12,7 +12,7 @@ class HotRecommend extends PureComponent {
                     <div>
                         <Title>热门演出</Title>
                     </div>
-                    <Swiper id={'hotRecommend'} height={"178px"} swiperConfig={{ slidesPerView : 3,spaceBetween: 5,paginationClickable: true,}}>
+                    <Swiper id={'hotRecommend'} height={"178px"} swiperconfig={{ slidesPerView : 3,spaceBetween: 5,paginationClickable: true,}}>
                         {
                             this.props.hotShowList.map((item,index)=>(
                                 <div className="swiper-slide" key={index}>

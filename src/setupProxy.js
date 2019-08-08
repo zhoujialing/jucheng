@@ -13,4 +13,12 @@ module.exports=function(app){
             "^/apis":""
         }
     }))
+
+    app.use(proxy("/m",{
+        target:"https://m.juooo.com",
+        changeOrigin:true,
+        pathRewrite:{
+            "^/m":""
+        }
+    }))
 }

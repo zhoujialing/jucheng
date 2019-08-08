@@ -22,6 +22,6 @@ export default class  extends PureComponent {
         this.pageInit.bind(this)();
     }
     pageInit() {
-        new SwiperN(`#${this.props.id}`, this.props.swiperConfig);
+        new SwiperN(`#${this.props.id}`, this.props.swiperconfig);
     }
 }

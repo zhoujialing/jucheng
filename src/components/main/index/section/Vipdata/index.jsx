@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from "react-redux";
-import { VipWrap } from "./styled"
+import { VipWrap } from "../styled"
 import { loadVipDataAsync } from "@/components/main/index/actionCreator"
 
 

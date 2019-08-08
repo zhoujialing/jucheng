@@ -7,6 +7,7 @@ import {
     loadIndexDataAsync,
     GET_INDEX_DATA
 } from "@/components/main/index/actionCreator"
+import topImg from '@/images/top.png'
 
 class City extends PureComponent {
     constructor(props) {
@@ -22,21 +23,23 @@ class City extends PureComponent {
     }
     render() {
         if (this.state.isCity) {
-            return (
-                <header>
-                    {/* onClick={this.props.handleCity.bind(this)} */}
-                    <div className="address" onClick={() => {
-                        this.setState({ isCity: !this.state.isCity })
-                    }}>
-                        <div className="addImg"></div>
-                        <div className="city" >
-                            {this.props.currentCity.name}
+                return (
+                    <header>
+                        <div className="address" onClick={() => {
+                            this.setState({ isCity: !this.state.isCity })
+                        }}>
+                            <div className="addImg"></div>
+                            <div className="city" >
+                                {this.props.currentCity.name}
+                            </div>
                         </div>
-                    </div>
-                    <div className="search">
-                    </div>
-                </header>
-            )
+                        <div className="search">
+                        </div>
+                        <div className="iconTop">
+                                    <img src={topImg} alt="" />
+                        </div>
+                    </header>
+                )
         } else {
             return (
                 <CityWrap>
@@ -113,12 +116,16 @@ class City extends PureComponent {
 
 
 const mapStateToProps = (state) => {
+    // console.log(state.getIn(["indexReducer", "indexTopData","top_icon"]));
+
     return {
         hotList: state.getIn(["indexReducer", "hotList"]).toJS(),
         cityList: state.getIn(["indexReducer", "cityList"]).toJS(),
         currentCity: state.getIn(["indexReducer", "currentCity"]).toJS(),
         indexTopData: state.getIn(["indexReducer", "indexTopData"]).toJS(),
         getVipData: state.getIn(["indexReducer", "getVipData"]).toJS(),
+        // top_icon:state.getIn(["indexReducer", "indexTopData","top_icon"]).toJS(),
+
     }
 }
 const mapDispatchToProps = (dispatch) => ({
@@ -132,12 +139,12 @@ const mapDispatchToProps = (dispatch) => ({
     },
     handleGetCityData() {
         // console.log(this.props);
-        
+
         dispatch(loadHotCityListData(dispatch))
         dispatch(loadIndexCityListData(dispatch))
         this.props.getIndexData(this.props.currentCity)
 
-       
+
     },
     getIndexData(currentCity) {
         dispatch(loadIndexDataAsync(dispatch, currentCity))

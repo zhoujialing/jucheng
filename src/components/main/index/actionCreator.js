@@ -9,6 +9,7 @@ export const GET_HOT_RECOMMEND="info/get_hot_recommend"
 export const GET_TOUR_RECOMMEND="info/get_tour_recommend"
 export const GET_FLOOR_SHOW="get_floor_Show"
 export const GET_HOT_THEATER="get_hot_theater"
+export const GET_UPLOAD_DATA="get_upload_data"
 
  const action = (val,type) => {
     return {
@@ -80,8 +81,7 @@ export const loadVipDataAsync = (dispatch) => {
 
 export const loadHotsRecommend = (dispatch,currentCity) => {
     //全部信息  https://api.juooo.com/home/index/getClassifyHome?city_id=53&abbreviation=AM&version=6.0.1&referer=2
-    console.log(currentCity);
-    
+
     return ()=>{
         request({
             method: "get",
@@ -154,13 +154,19 @@ export const loadHotTheater= (dispatch) => {
 
 
 // https://api.juooo.com/home/index/getRecommendShow?cityAdd=&page=2&version=6.0.3&referer=2
-// export const loadRecommendShow= (dispatach) => {
-//     return ()=>{
-//         request({
-//             method: "get",
-//             url: "/home/index/getRecommendShow",
-//         }).then((res) => {
-//             dispatch(action(res,GET_HOT_THEATER));
-//         })
-//     }
-// }
+export const loadRecommendShow= (dispatch,data) => {
+    return ()=>{
+        request({
+            method: "get",
+            url: "/home/index/getRecommendShow",
+            params:{
+                cityAdd:data.cityAdd,
+                page:data.page,
+                version:"6.0.3",
+                referer:"2"
+            }
+        }).then((res) => {
+            dispatch(action(res,GET_UPLOAD_DATA));
+        })
+    }
+}

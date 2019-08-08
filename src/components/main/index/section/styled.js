@@ -130,6 +130,7 @@ const NavWrap = styled.div`
         list-style:none;
          display:flex;
         justify-content:space-between; 
+        
         li{
             width:${r(75.5)};
          display:flex;
@@ -204,7 +205,7 @@ const NavWrap = styled.div`
         margin-bottom:${r(30)};
         img{
             width:100%;
-            height:auto;
+            height:100%;
         }
     }
     /* ---------------------------- */
@@ -412,13 +413,30 @@ const ShowWrap = styled.div`
             font-size:${r(20)};
             font-weight:700;
         }
+        #show0{
+            background: rgb(136, 122, 147);
+        }
+        #show1{
+            background: rgb(213, 201, 203);
+        }
+        #show2{
+            background: rgb(137, 41, 46);
+        }
+        #show3{
+            background: rgb(213, 201, 203);
+        }
+        #show4{
+            background: rgb(50, 42, 33);
+        }
+        #show5{
+            background: rgb(68, 40, 28);
+        }
         .showOne{
             padding:${r(14)} 0 ${r(14)} ${r(14)};
             display:flex;
             justify-content:center;
-            /* align-items:center; */
-            background: rgb(104, 106, 113);
             margin-top:${r(20)};
+
             .showOneL{
                 width:${r(107)} ;
                 height:${r(146)};
@@ -561,5 +579,64 @@ const TheaterWrap = styled.div`
     }
 `
 
+const Refresh=styled.div`
+    margin-top:${r(30)};
+    padding:0 ${r(15)};
+    .title{
+        h3{
+            font-size:${r(20)};
+            color:#232323;
+        }
+    }
+    .tuijian{
+        margin-top:${r(20)};
+    
+        .showList{
+            display:flex;
+            justify-content:center;
+            margin-bottom:${r(32.5)};
+            .showImg{
+                width:${r(110)};
+                height:${r(150)};
+            position: relative;
+                img{
+                    width:100%;
+                    height:100%;
+                }
+            }
+            .showinfo{
+                flex:1;
+                margin-left:${r(15)};
+                padding-top:${r(5)};
+                p:nth-child(1){
+                    font-size:${r(16)};
+                }
+                h3{
+                    margin-top:${r(12.5)};
+                    font-size:${r(17)};
+                    line-height:${r(20)};
+                    /* line-clamp: 2;
+                    overflow: hidden;
+                    text-overflow: ellipsis; */
+                }
+                p:nth-child(3){
+                    font-size:${r(12)};
+                    color:#666;
+                    margin-top:${r(12.5)};
+                }
+                p:nth-child(4){
+                    font-size:${r(12)};
+                    color:#666;
+                    margin-top:${r(10)};
+                    span{
+                        color:#ff6743;
+                    font-size:${r(16)};
+                    }
+                }
+            }
+        }
+    }
+`
 
-export { CityWrap, CityBox, BannerWrap, NavWrap, Recommend, Title, RecommendT, VipWrap, ShowWrap, TheaterWrap }
+
+export { CityWrap, CityBox, BannerWrap, NavWrap, Recommend, Title, RecommendT, VipWrap, ShowWrap, TheaterWrap ,Refresh}
