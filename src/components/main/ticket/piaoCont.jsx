@@ -19,7 +19,6 @@ class PiaoConten extends React.PureComponent {
 }
 const mapStateToProps = (state) => {
     console.log(state.getIn(["ticketReducer", "showList"]).toJS());
-
     return {
         // currentCity: state.getIn(["ticketReducer", "cityList"]).toJS(),
         // show_category_list: state.getIn(["ticketReducer", "show_category_list"]).toJS(),

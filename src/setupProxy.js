@@ -1,4 +1,7 @@
 const proxy=require("http-proxy-middleware");
+const userData=require("./data/userInfo.json");
+
+
 
 module.exports=function(app){
     app.get("/test",(req,res)=>{
@@ -21,4 +24,10 @@ module.exports=function(app){
             "^/m":""
         }
     }))
+
+    app.post("/login", (req, res) => {
+        let query=  req.body;
+        console.log(query);
+        res.json(userData.userList[0]);
+    })
 }

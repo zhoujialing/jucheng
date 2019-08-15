@@ -11,7 +11,7 @@ import my from "@/images/4.1.png"
 import myS from "@/images/4.2.png"
 
  import { NavLink } from "react-router-dom"
-import { blockParams } from "handlebars";
+// import { blockParams } from "handlebars";
 export default class extends React.Component {
   constructor(props) {
     super(props);
@@ -48,12 +48,12 @@ export default class extends React.Component {
             }}
             to="/index"  />
             }
-            selectedIcon={<div style={{
+            selectedIcon={<NavLink style={{
               width: '42px',
               height: '42px',
               background: `url(${indexSel}) center center /  30px 30px no-repeat`
             }}
-            />
+            to="/index" />
             }
             selected={this.state.selectedTab === 'blueTab'}
 
@@ -77,12 +77,12 @@ export default class extends React.Component {
               to="/theater"  />
             }
             selectedIcon={
-              <div style={{
+              <NavLink style={{
                 width: '22px',
                 height: '22px',
                 background: `url(${theaterS}) center center /  30px 30px no-repeat`
               }}
-              />
+              to="/theater" />
             }
             title="剧院"
             key="剧院"
@@ -106,12 +106,12 @@ export default class extends React.Component {
               to="/ticket" />
             }
             selectedIcon={
-              <div style={{
+              <NavLink style={{
                 width: '22px',
                 height: '22px',
                 background: `url(${ticketS}) center center /  30px 30px no-repeat`
               }}
-              />
+              to="/ticket" />
             }
             title="票夹"
             key="票夹"
@@ -132,7 +132,13 @@ export default class extends React.Component {
               background: `url(${my}) center center /  30px 30px no-repeat`
             }}
             to="/mine" />}
-            selectedIcon={{ uri: `${myS}` }}
+            selectedIcon={<NavLink style={{
+              width: '22px',
+              height: '22px',
+              display:'block',
+              background: `url(${myS}) center center /  30px 30px no-repeat`
+            }}
+            to="/mine" />}
             title="我的"
             key="我的"
             selected={this.state.selectedTab === 'yellowTab'}

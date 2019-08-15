@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { BannerWrap, NavWrap } from "../styled"
 import { Carousel, WingBlank } from 'antd-mobile';
-
+import {NavLink} from 'react-router-dom';
 export class Banner extends PureComponent {
   state = {
     imgHeight: 196,
@@ -57,15 +57,13 @@ export class Nav extends PureComponent {
           <ul className="navTop">
             {
               this.props.indexTopData.classify_list.map((val, index) => (
-                <li key={index}>
-                  <a
-                    href={val.url}
-                  >
+                <li key={index} >
+                  <NavLink to={`/ticket/${val.category_id}`}>
                     <img
                       src={val.pic} alt=""
                     />
                     <p>{val.name}</p>
-                  </a>
+                  </NavLink>
                 </li>
               ))
             }

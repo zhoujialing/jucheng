@@ -19,7 +19,6 @@ export const loadCityList = (dispatch) => {
             method: "get",
             url: "/Search/getCity?version=6.0.3&referer=2"
         }).then((res) => {
-            console.log(res);
             dispatch(action(res,GET_CITY_LIST));
         })
     }
@@ -33,7 +32,6 @@ export const loadShowCategory = (dispatch) => {
             method: "get",
             url: "/Search/getShowCategory?version=6.0.3&referer=2"
         }).then((res) => {
-            console.log(res);
             
             dispatch(action(res,GET_SHOW_CATEGORY));
         })
@@ -57,8 +55,6 @@ export const loadShowList = (dispatch,data) => {
                 referer:'2'
             }
         }).then((res) => {
-            console.log(res);
-            
             dispatch(action(res,GET_SHOW_LIST));
         })
     }

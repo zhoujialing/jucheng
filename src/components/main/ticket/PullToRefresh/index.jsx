@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux"
 import { PullToRefresh } from 'antd-mobile';
-import { Refresh } from '../styled'
 
 import {
   loadRecommendShow
@@ -32,31 +31,7 @@ class UpLoad extends React.PureComponent {
         }}
       >
         {this.props.children}
-        <Refresh >
-          <div className="title">
-            <h3>为你推荐</h3>
-          </div>
-          <ul className="tuijian">
-            {
-              this.props.upLoad.map((item, index) => (
-                <li key={index} className="showList">
-                  <div className="showImg">
-                    <img src={item.schePic} />
-                    <div dangerouslySetInnerHTML={{ __html: item.tag_icon }}></div>
-                  </div>
-                  <div className="showinfo">
-                    <p>{item.show_time}</p>
-                    <h3>{item.show_name}</h3>
-                    <p>{item.c_name}|{item.v_name}</p>
-                    <p>
-                      <span>￥{parseInt(item.low_price)}</span>起
-                    </p>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </Refresh>
+        
       </PullToRefresh>
     );
   }
